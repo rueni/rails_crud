@@ -1,0 +1,77 @@
+<nav class="navbar navbar-inverse navbar-fixed-top container-fluid">
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><a href="/home">View List</a></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><a href="/home/new">Add New Item</a></button>
+  </div>
+</div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <h1>Shopping List</h1>
+
+      <h4>List of products to purchase</h4>
+
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><b>THE LIST</b></div>
+        <div class="panel-body">
+          <p>Welcome to your shopping list.  No more excuses for not picking items up at the store!</p>
+        </div>
+
+        <!-- Table -->
+        <table class="table table-striped table-hover">
+
+          <thead>
+            <tr>
+              <td>
+                <b>Product Name</b>
+              </td>
+              <td>
+                <b>Quantity</b>
+              </td>
+              <td>
+                <b>Created On</b>
+              </td>
+              <td>
+                <b>Check It Off</b>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+
+        <% @products.each do |item| %>
+
+          <tr>
+            <td>
+              <%= item.name %>
+            </td>
+            <td>
+              <%= item.quantity %>
+            </td>
+            <td>
+              <%= item.created_at.localtime.to_date %>
+            </td>
+            <td>
+              <%= form_for item, url: {action: 'delete'} do |f| %>
+                <%= f.hidden_field :id %>
+                <%= f.submit 'Check off the list' %>
+              <% end %>
+            </td>
+          </tr>
+
+        <% end %>
+        </tbody>
+        </table>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping List App</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<%= yield %>
+
+<footer>
+  &copy Chris Kim:
+
+  <% if current_user %>
+  Signed in as <%= current_user.name %> | <%= link_to "Logout", '/users/logout' %>
+  <% else %>
+  <%= link_to 'Login', '/users/login' %> | <%= link_to 'Signup', '/users/signup' %>
+  <% end %>
+
+
+</footer>
+
+</body>
+</html>

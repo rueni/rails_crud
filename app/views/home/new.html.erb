@@ -1,0 +1,22 @@
+<nav class="navbar navbar-inverse navbar-fixed-top container-fluid">
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><a href="/home">View List</a></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><a href="/home/new">Add New Item</a></button>
+  </div>
+</div>
+</nav>
+
+<h3>Add Product to List</h3>
+
+<%= form_for @product, url: {action: 'create'}, html: {class: 'some-form'} do |f| %>
+
+  Name: <%= f.text_field :name %>
+  Quantity: <%= f.text_field :quantity, html: {type: 'number'} %>
+  <%= f.submit 'Add Item' %>
+
+<% end %>
+
+<li><a href="/home">Back to list</a></li>

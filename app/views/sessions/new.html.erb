@@ -1,0 +1,23 @@
+
+<% if @message.nil? == false %>
+  <strong><%= @message %></strong>
+<% end %>
+
+<div class="jumbotron" >
+  <h1>Shopping List!</h1>
+  <p>Login below or create a new account</p>
+  <p><a class="btn btn-primary btn-lg" href="/users/signup" role="button">Join Now!</a></p>
+</div>
+
+<%= form_tag '/sessions/create' do %>
+
+  Email: <%= text_field_tag :email %>
+  Password: <%= password_field_tag :password %>
+  <%= submit_tag 'Log In' %>
+
+<% end %><br>
+
+
+<div class="embed-responsive embed-responsive-4by3">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/gggWmpiEEkY?autoplay=true"></iframe>
+</div>
